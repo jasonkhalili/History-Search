@@ -10,4 +10,4 @@ const port = process.env.PORT || 3200;
 server.use(middlewares);
 server.use(router);
 
-server.listen(port);
+server.listen(port, () => console.log(`Listening on port: ${port}`));
