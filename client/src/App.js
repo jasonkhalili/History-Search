@@ -9,8 +9,13 @@ const App = () => {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const [events, setEvents] = useState([]);
+  const [numPages, setNumPages] = useState(1);
 
   useEffect(() => {
+    axios.get(`http://localhost:3200/events?q=${query}`)
+      .then(res => {
+        setNumPages(Math.ceil(res.data.length / 10));
+      })
     axios.get(`http://localhost:3200/events?q=${query}&_page=${page}`)
       .then(res => {
         setEvents(res.data);
@@ -26,7 +31,7 @@ const App = () => {
       onChange={(e) => setQuery(e.target.value)}
       />
       <List events={events} />
-      <Pagination count={10} onChange={(event, page) => setPage(page)} />
+      <Pagination count={numPages} onChange={(event, page) => setPage(page)} />
     </>
   )
 }
