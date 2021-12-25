@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TextField, Pagination } from '@mui/material';
+import { Container, TextField, Pagination, Typography } from '@mui/material';
 import axios from 'axios';
 
 import List from './List';
@@ -24,14 +24,23 @@ const App = () => {
 
   return (
     <>
-      <TextField 
-      id="outlined-basic" 
-      label="Enter Search Term" 
-      variant="outlined" 
-      onChange={(e) => setQuery(e.target.value)}
-      />
-      <List events={events} />
-      <Pagination count={numPages} onChange={(event, page) => setPage(page)} />
+      <Container maxWidth="xl">
+        <Typography sx={{ marginTop: '20px' }}variant={'h4'}>Historical Search:</Typography>
+        <TextField
+        sx={{ marginBottom: '10px', marginTop: '10px' }}
+        fullWidth
+        id="outlined-basic" 
+        label="Enter Search Term" 
+        variant="outlined" 
+        onChange={(e) => setQuery(e.target.value)}
+        />
+        <List events={events} />
+        <Pagination
+        sx={{ marginTop: '10px' }}
+        count={numPages} 
+        onChange={(event, page) => setPage(page)} 
+        />
+      </Container>
     </>
   )
 }
