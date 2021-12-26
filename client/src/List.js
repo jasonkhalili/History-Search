@@ -6,7 +6,7 @@ const List = (props) => {
         return (
             <>
                 {props.events.map((event) => {
-                    return <div><Typography><strong>{event.date}</strong>: {event.description}</Typography></div>;
+                    return <div><Typography><strong>{event.date}</strong>   {event.description}</Typography></div>;
                 })}
             </>
         )
