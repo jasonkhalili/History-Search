@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "install-all": "npm install && cd client && npm install",
     "start-server": "node server.js",
     "start-client": "cd client && npm start",
     "start": "concurrently \"npm run start-server\" \"npm run start-client\""
