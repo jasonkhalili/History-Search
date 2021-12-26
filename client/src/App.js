@@ -32,7 +32,11 @@ const App = () => {
         id="outlined-basic" 
         label="Enter Search Term" 
         variant="outlined" 
-        onChange={(e) => setQuery(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            setQuery(e.target.value)}
+          }
+        }
         />
         <List events={events} />
         <Pagination
