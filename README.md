@@ -6,6 +6,6 @@ A search engine for a variety of historical events, displayed in paginated form!
 
 ```
 npm run install-all
-npm run start
+npm run start-local
 ```
 Navigate to http://localhost:3000, then type in a search term. Hit 'Enter' and results will pop up. Use the numbers at the bottom to navigate the pages.
